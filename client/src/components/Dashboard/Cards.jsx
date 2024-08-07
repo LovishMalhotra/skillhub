@@ -44,14 +44,14 @@ export function Training() {
   const employeeTemplate = (skills) => {
     return (
       <div
-        className="card border-1 surface-border border-round  text-center py-2  px-3 shadow-2"
+        className="card border-1 m-4 surface-border border-round  text-center  shadow-2"
         style={{ width: "90%" }}
       >
         <div className="mb-3">
           <Avatar
             image={skills.skillImage}
             size="xlarge"
-            style={{ width: "auto", height: "auto" }}
+            style={{ width: "300px", height: "200px" }}
           />
         </div>
 

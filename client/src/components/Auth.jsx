@@ -37,7 +37,7 @@ const Login = () => {
           if (userRole === 'Admin') {
               navigate('/admin/Dashboard');
           } else {
-              navigate('/userProfile');
+              navigate('/user/userProfile');
           }
 
           console.log('Loged in');
@@ -163,7 +163,7 @@ const SignUp = () => {
   };
 
   return (
-    <section className="mt-10">
+    <section className="mt-5 ">
       <div className="card container" style={{ width: "500px" }}>
         <div className="row d-flex mt-5">
           <div className="col-lg-8 col-md-6 col-sm-12 mx-auto">

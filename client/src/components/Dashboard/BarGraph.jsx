@@ -78,7 +78,7 @@ const BarGraph = () => {
   }, []);
 
   return (
-    <div className="card container col-md-8 p-4">
+    <div className="card col-md-8 ">
       <Chart type="bar" data={chartData} options={chartOptions} />
     </div>
   );
@@ -129,7 +129,7 @@ const PieChart = () => {
   }, []);
 
   return (
-    <div className="card flex justify-content-center " style={{ width: "20%" }}>
+    <div className="card flex justify-content-center mx-5 " style={{ width: "20%" }}>
       <Chart type="doughnut" data={chartData} options={chartOptions} />
     </div>
   );
