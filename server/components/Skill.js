@@ -53,5 +53,18 @@ router.get('/getSkills', async (req, res) => {
   }
 });
 
+router.delete('/deleteSkill/:id', async (req, res) => {
+  
+  try {
+    const {id} = req.params;
+    await Skill.findByIdAndDelete(id);
+    res.status(200).send({ message: 'deleted successfully' });
+  } catch (error) {
+    console.error('Error fetching skills:', error);
+    res.status(500).send({ error: 'Server error' });
+  }
+  
+});
+
 
 module.exports = router;
