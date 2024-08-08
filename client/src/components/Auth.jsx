@@ -25,10 +25,8 @@ const Login = () => {
           const response = await axios.post('http://localhost:8080/auth/login', loginData);
           const { token } = response.data;
 
-          // Saving the token to local storage
           localStorage.setItem('authToken', token);
 
-          // Decode the token to get user details
           const decodedToken = jwtDecode(token);
           const userRole = decodedToken.role;
 

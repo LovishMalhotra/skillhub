@@ -28,12 +28,6 @@ export function UserProfileDialog({ visible, onClose, onSave, userProfile }) {
     }
   };
 
-  const handleAddPendingSkill = () => {
-    if (newPendingSkill.skillName.trim()) {
-      setPendingSkills(prevPendingSkills => [...prevPendingSkills, newPendingSkill]);
-      setNewPendingSkill({ skillName: '', level: 'Beginner' });
-    }
-  };
 
   const handleFileUpload = (e) => {
     setImageFile(e.files[0]);
@@ -60,7 +54,7 @@ export function UserProfileDialog({ visible, onClose, onSave, userProfile }) {
 
       const responseData = await response.json();
       toast.current.show({ severity: 'success', summary: 'Success', detail: 'Profile updated successfully', life: 3000 });
-      onClose();
+      // onClose();
     } catch (error) {
       console.error(error);
       toast.current.show({ severity: 'error', summary: 'Error', detail: 'Failed to update profile', life: 3000 });

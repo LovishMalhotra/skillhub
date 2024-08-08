@@ -15,11 +15,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/auth/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path='/admin/Dashboard' element={<Dashboard/>} />
         <Route path='/admin/Dashboard/card' element={<CreateSkillForm/>} />
-        <Route path='/user/userProfile' element={<ProfilePage/>} />
+        <Route path='/user/userProfile/' element={<ProfilePage/>} />
+        <Route path='/admin/Dashboard/userProfile/:userId' element={<ProfilePage/>} />
+        <Route path='/userProfile/:userId' element={<ProfilePage/>} />
         <Route path='/user/edit' element={<Editlogic/>} />
       </Routes>
     </Router>

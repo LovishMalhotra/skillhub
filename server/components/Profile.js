@@ -56,4 +56,36 @@ const storage = multer.diskStorage({
     }
   });
 
+  router.get('/getProfile/:userId', async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      console.log(userId);
+      const profile = await UserProfile.findOne({ user: userId }).populate('user', 'email role');
+  
+      if (!profile) {
+        return res.status(404).json({ message: 'Profile not found' });
+      }
+  
+      res.json(profile);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  });
+
+  router.get('/getAll', async (req, res) => {
+    try {
+     
+      const profiles = await UserProfile.find().populate('user', 'email role');
+  
+      if (!profiles || profiles.length === 0) {
+        return res.status(404).json({ message: 'No profiles found' });
+      }
+  
+      res.json(profiles);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  });
+
+
   module.exports = router;
