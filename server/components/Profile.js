@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const UserProfile = require('../models/Profile');
 const fs = require('fs');
 const router = express.Router();
+const { ObjectId } = require('mongoose').Types;
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -59,9 +60,13 @@ const storage = multer.diskStorage({
   router.get('/getProfile/:userId', async (req, res) => {
     try {
       const userId = req.params.userId;
-      console.log(userId);
-      const profile = await UserProfile.findOne({ user: userId }).populate('user', 'email role');
+      // console.log(userId);
+      if (!ObjectId.isValid(userId)) {
+        return res.status(400).json({ message: 'Invalid User ID format' });
+      }
   
+      const profile = await UserProfile.findOne({ user: userId }).populate('user', 'email role');
+
       if (!profile) {
         return res.status(404).json({ message: 'Profile not found' });
       }
@@ -87,5 +92,31 @@ const storage = multer.diskStorage({
     }
   });
 
+
+ 
+router.put('/updatePendingSkills/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const { pendingSkills } = req.body;
+
+  try {
+    // Find the profile and update pendingSkills
+    const updatedProfile = await Profile.findOneAndUpdate(
+      { user: userId }, // Assuming 'user' field in Profile schema is used to match
+      { $set: { pendingSkills: pendingSkills } },
+      { new: true } // Returns the updated document
+    );
+
+    if (!updatedProfile) {
+      return res.status(404).json({ message: 'Profile not found' });
+    }
+
+    res.json(updatedProfile);
+  } catch (error) {
+    console.error('Error updating pending skills:', error.message);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+  
 
   module.exports = router;

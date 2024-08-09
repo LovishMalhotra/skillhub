@@ -35,7 +35,7 @@ export default function Table() {
   };
 
   const detailsButtonTemplate = (rowData) => {
-    return <Button label="Details" onClick={() => handleClick(rowData._id)} />;
+    return <Button label="Details" onClick={() => handleClick(rowData.user._id)} />;
   };
 
   const formatDate = (dateString) => {
