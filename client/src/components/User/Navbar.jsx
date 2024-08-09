@@ -42,7 +42,7 @@ export default function TemplateDemo() {
   const end = (
     
     <div className="d-flex align-items-center gap-2 m-2">
-        <Button icon="pi pi-user"  text raised label="Listing" aria-label="Search"  className="rounded mx-5" onClick={handleClick}/>
+       
       <Avatar
         image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
         shape="circle"

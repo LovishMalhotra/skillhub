@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {BarGraph,  PieChart } from "./BarGraph";
 import { PrimeReactProvider } from 'primereact/api';
 import TemplateDemo from "./Navbar";
 import {Training} from "./Cards";
-import "primereact/resources/themes/lara-light-cyan/theme.css";
-import 'primeicons/primeicons.css';
+
 
 const Dashboard = () => {
     return (<>

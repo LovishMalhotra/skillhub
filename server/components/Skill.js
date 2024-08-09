@@ -23,7 +23,7 @@ const upload = multer({ storage });
 router.post('/create', upload.single('skillImage'), async (req, res) => {
   try {
     const { skillName, techStack } = req.body;
-    const parsedTechStack = JSON.parse(techStack); // Assuming techStack is a JSON string
+    const parsedTechStack = JSON.parse(techStack); 
     
     // Process image file
     const skillImage = req.file ? `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}` : '';

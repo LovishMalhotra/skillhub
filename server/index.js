@@ -7,6 +7,7 @@ const path = require('path');
 
 const authRoutes = require("./components/User")
 const skillRoutes = require("./components/Skill")
+const userRoutes = require("./components/Profile")
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use("/auth",authRoutes);
 app.use("/skills",skillRoutes);
-
+app.use("/user",userRoutes);
 
 
 //Database connection

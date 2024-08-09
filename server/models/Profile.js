@@ -1,12 +1,21 @@
 const mongoose = require("mongoose");
 
 const UserProfileSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true,ref: 'User' },
-  name:{ type: String, required: true },
-  designation: { type: String, required: true },
-  department: { type: String, required: true },
-  phone:{ type: String, required: true },
-  imageUrl: { type: String }
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  name:{ type: String},
+  designation: { type: String },
+  department: { type: String },
+  phone:{ type: String},
+  imageUrl: { type: String },
+  skills: [{
+    skillName: { type: String },
+    level: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced'] }
+  }],
+  pendingSkills: [{
+    skillName: { type: String },
+    level: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced']}
+  }]
+
 });
 
 module.exports = mongoose.model("Profile", UserProfileSchema);

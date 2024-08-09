@@ -16,14 +16,14 @@ const BarGraph = () => {
       labels: ["January", "February", "March", "April", "May", "June", "July"],
       datasets: [
         {
-          label: "Active",
+          label: "Completed",
           backgroundColor: documentStyle.getPropertyValue("--blue-500"),
           borderColor: documentStyle.getPropertyValue("--blue-500"),
           data: [65, 59, 80, 81, 56, 55, 40],
         },
         {
-          label: "Inactive",
-          backgroundColor: documentStyle.getPropertyValue("--pink-500"),
+          label: "Pending",
+          backgroundColor: documentStyle.getPropertyValue("--pink-300"),
           borderColor: documentStyle.getPropertyValue("--pink-500"),
           data: [28, 48, 40, 19, 46, 27, 90],
         },

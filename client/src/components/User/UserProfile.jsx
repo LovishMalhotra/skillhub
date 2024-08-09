@@ -17,6 +17,8 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function ProfilePage() {
+
+  
   return (
     <section >
       <Navbar />  

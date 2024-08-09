@@ -4,8 +4,7 @@ const skillSchema = new mongoose.Schema({
     skillName: { type: String, required: true },
     skillImage: { type: String }, 
     techStack: [{
-      techName: { type: String},
-      techImage: { type: String} 
+      name: { type: String}
     }]
   });
 
